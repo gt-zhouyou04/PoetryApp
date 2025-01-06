@@ -9,8 +9,8 @@ import com.gyf.immersionbar.ImmersionBar
 abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         init()
+        super.onCreate(savedInstanceState)
     }
 
     protected abstract fun init()

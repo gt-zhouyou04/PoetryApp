@@ -4,4 +4,9 @@
         <!-- Customize your theme here. -->
         <item name="background">@color/color_bg_theme</item>
     </style>
+
+    <style name="Custom_Launch_Theme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/color_bg_theme</item>
+    </style>
 </resources>
