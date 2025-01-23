@@ -24,6 +24,7 @@
 
         <activity
             android:name=".activity.MainActivity"
+            android:theme="@style/Custom_Launch_Theme"
             android:screenOrientation="portrait"
             android:exported="false" >
         </activity>

@@ -2,10 +2,14 @@ package com.example.poetryapp.activity
 
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.example.poetryapp.base.BaseBindingActivity
+import com.example.poetryapp.base.CommPagerAdapter
 import com.example.poetryapp.databinding.ActivityMainBinding
+import com.example.poetryapp.fragment.MainFragment
 
 class MainActivity : BaseBindingActivity<ActivityMainBinding>({ActivityMainBinding.inflate(it)}) {
+    private var pagerAdapter: CommPagerAdapter? = null
     private val fragments = ArrayList<Fragment>()
     private val mainFragment = MainFragment()
 
@@ -18,6 +22,22 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>({ActivityMainBindi
 
     override fun init() {
         fragments.add(mainFragment)
+        pagerAdapter = CommPagerAdapter(supportFragmentManager, fragments, arrayOf("", ""))
+        binding.viewPager.adapter = pagerAdapter
+
+        binding.viewPager.addOnPageChangeListener(object : OnPageChangeListener {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+            override fun onPageSelected(position: Int) {
+                curMainPage = position
+                if (position == 0) {
+                    Toast.makeText(applicationContext, "继续播放", Toast.LENGTH_SHORT).show()
+                } else if (position == 1) {
+                    Toast.makeText(applicationContext, "暂停播放", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {}
+        })
     }
 
     override fun onBackPressed() {
@@ -34,4 +54,7 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>({ActivityMainBindi
         }
     }
 
+    companion object {
+        var curMainPage = 0
+    }
 }
