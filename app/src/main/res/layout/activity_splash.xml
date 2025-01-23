@@ -8,6 +8,7 @@
         android:id="@+id/imageViewSplash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/splash_screen_logo"
         android:src="@mipmap/splash"
         android:scaleType="centerCrop"/>
 

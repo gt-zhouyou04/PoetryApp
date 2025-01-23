@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.CountDownTimer
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import com.example.poetryapp.MainActivity
 import com.example.poetryapp.R
 import com.example.poetryapp.base.BaseBindingActivity
 import com.example.poetryapp.databinding.ActivitySplashBinding
@@ -36,6 +35,8 @@ class SplashActivity : BaseBindingActivity<ActivitySplashBinding>({ ActivitySpla
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
                 binding.imageViewSplash.startAnimation(fadeOut)
+//                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+//                finish()
             }
         }.start()
     }
